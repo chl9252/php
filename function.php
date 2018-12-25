@@ -1,22 +1,23 @@
+
 <?php 
 
 function goodDay($name, $day) {
 
 switch ($day) {
-	case 'понедельник':
+	case 1:
 
-	case 'вторник':
+	case 2:
 
-	case 'среда':
+	case 3:
 
-	case 'четверг':
+	case 4:
 
-	case 'пятница':
+	case 5:
 		echo "Привет {$name}! Хорошего и продуктивного рабочего дня!"; 
 		break;
-	case 'суббота':
+	case 6:
 
-	case 'воскресенье':
+	case 7:
 		echo "Привет {$name}! Желаю вам хорошо отдохнуть в этот день!";
 		break;
 	
@@ -27,6 +28,6 @@ switch ($day) {
 
 };
 
-goodDay("Юрий","воскресенье");
+goodDay("Юрий",5);
 
  ?>

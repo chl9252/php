@@ -30,4 +30,3 @@ for ($i = 0; $i < count($books); $i++) {
 echo "</ol>";
 
 ?>
-

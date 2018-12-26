@@ -1,32 +1,27 @@
+<h1>Простая форма обратной связи</h1>
 
+<form action="index.php" method="post">
+	<input type="text" name="userName" placeholder="Ваше имя"><br><br>
+	<input type="text" name="userEmail" placeholder="Ваш email"><br><br>
+	<textarea name="message" cols="50" rows="5" placeholder="Сообщение"></textarea><br><br>
+	<input type="submit" value="Отправить сообщение">
+</form>
 <?php 
+$resultEmail=false;
 
-$books = array(
-	"451° по Фаренгейту",
-	"Шантарам",
-	"1984",
-	"Мастер и Маргарита",
-	"Три товарища",
-	"Портрет Дориана Грея",
-	"Вино из одуванчиков",
-	"Цветы для Элджернона",
-	"Над пропастью во ржи",
-	"Маленький принц",
-	"Анна Каренина",
-	"Сто лет одиночества",
-	"Тень горы",
-	"Атлант расправил плечи"
-);
+if (!empty($_POST)) {
+		$message = "Письмо с сайта. \n"
+					. $message = "Имя пользователя: " . $_POST['userName'] . "\n"
+					. $message = "Email пользователя " . $_POST['userEmail'] . "\n"
+					. $message = "Сообщение " . $_POST['userName'] . "\n";
 
-echo "<h1>Учебный массив:</h1> ";
-
-echo "<ol>";
-
-for ($i = 0; $i < count($books); $i++) {
-	echo "<li> $books[$i] </li>";
-	echo "<br>";
-};
-
-echo "</ol>";
+		$headers = "From: info@webcademy.ru";
+		$resultEmail = mail("chl9252@mail.ru", "Сообщение с сайта", $message, $headers);
+		if ($resultEmail) {
+			echo "<span>Сообщение отправлено успешно!";
+		} else {
+			echo "<span>Ошибка! Сообщение не отправлено";
+		}
+}
 
 ?>
